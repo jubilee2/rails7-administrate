@@ -20,6 +20,7 @@ class JobDashboard < Administrate::BaseDashboard
     queue: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
+    status: Field::String,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -30,9 +31,15 @@ class JobDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = %i[
     id
     priority
-    attempts
+    status
     handler
+    queue
+    created_at
+    run_at
+    attempts
+    last_error
   ].freeze
+
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
@@ -58,11 +65,7 @@ class JobDashboard < Administrate::BaseDashboard
     priority
     attempts
     handler
-    last_error
     run_at
-    locked_at
-    failed_at
-    locked_by
     queue
   ].freeze
 

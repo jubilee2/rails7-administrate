@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   namespace :admin do
       resources :articles
       resources :comments
-      resources :jobs
+      resources :jobs, only: [:destroy, :index, :show] do
+        put :queue, on: :member
+      end
 
       root to: "articles#index"
     end
