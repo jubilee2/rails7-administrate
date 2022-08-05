@@ -49,6 +49,7 @@ gem "bootsnap", require: false
 # gem "image_processing", "~> 1.2"
 
 gem "administrate"
+gem "administrate-field-nested_has_many"
 
 gem 'delayed_job_active_record'
 
